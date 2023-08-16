@@ -6,19 +6,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function index()
     {
         $blogs =
             [
-                [
-                    'title' => "Invokable",
-                    'body' => 'This is coming from an invokable single action controller. Requires --invokable flag',
-                    'status' => 1,
-
-                ],
                 [
                     'title' => "My Holy God",
                     'body' => 'Holy God is my savior',
@@ -38,11 +29,6 @@ class HomeController extends Controller
                 [
                     'title' => "TypeScript",
                     'body' => 'Superset of JavaScript',
-                    'status' => 1,
-                ],
-                [
-                    'title' => "Original Home Controller",
-                    'body' => 'Original Home Controller has been renamed to __HomeController',
                     'status' => 1,
                 ],
 

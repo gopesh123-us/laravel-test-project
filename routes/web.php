@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Faker\Provider\Lorem;
@@ -21,12 +22,19 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('home', [HomeController::class, 'index']);
+Route::get('home', HomeController::class);
 
 Route::get('about', [AboutController::class, 'index']);
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 
+Route::resource('blog', BlogController::class);
+
+/**
+ * Route::get('home', [HomeController::class, 'index']);
+ * see above - this controller has been converted to a single action controller
+ * and the original Controller has been renamed to __HomeController.php
+ */
 /* Route::get('about', function () {
     $aboutus = "We are UX designers";
     $location = "We are based off Gainesville, VA";
@@ -40,8 +48,6 @@ Route::get('contact/{id}', function ($id) {
 Route::get('info', function () {
     return phpinfo();
 });
-
-
 
 Route::get('edit-contact', function () {
     return "<a href='" . route('edit-contact', [15], false) . "'>Edit Contact</a>";
