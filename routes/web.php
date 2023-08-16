@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use Faker\Provider\Lorem;
 use Illuminate\Support\Facades\Route;
 
@@ -18,43 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('home', function () {
-    $blogs =
-        [
-            [
-                'title' => "My Holy God",
-                'body' => 'Lorem ipsum dolor sit amet',
-                'status' => 1,
+Route::get('home', [HomeController::class, 'index']);
 
-            ],
-            [
-                'title' => "Mindful Walking",
-                'body' => 'Best exercise to stay calm and workout',
-                'status' => 1,
-            ],
-            [
-                'title' => "Advent of AI",
-                'body' => 'Artificial Intelligence has change the world',
-                'status' => 0,
-            ],
-            [
-                'title' => "TypeScript",
-                'body' => 'Superset of JavaScript',
-                'status' => 1,
-            ],
+Route::get('about', [AboutController::class, 'index']);
 
-        ];
-    return view('home', compact('blogs'));
-});
-
-Route::get('about', function () {
-    return view('about');
-});
-
-Route::get('contact', function () {
-    $address = "Gainesville, VA";
-    return view('contact', ['msg' => $address]);
-})->name('contact');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
 
 /* Route::get('about', function () {
     $aboutus = "We are UX designers";

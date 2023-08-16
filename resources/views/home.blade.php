@@ -3,8 +3,12 @@
 @section('content')
     <main role="main" class="container">
         <h1 class="mt-5 text-danger">Home</h1>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum pariatur ratione quaerat vero a, ullam reiciendis
-        earum distinctio nihil exercitationem quidem neque odit aliquid quasi esse, repudiandae, adipisci non placeat.
+        Jean-François Champollion vanquish the impossible gathered by gravity billions upon billions network of wormholes
+        prime number. Muse about stirred by starlight astonishment bits of moving fluff finite but unbounded dispassionate
+        extraterrestrial observer. With pretty stories for which there's little good evidence Orion's sword vastness is
+        bearable only through love with pretty stories for which there's little good evidence finite but unbounded two
+        ghostly white figures in coveralls and helmets are softly dancing and billions upon billions upon billions upon
+        billions upon billions upon billions upon billions.
         <div class="row mt-2">
             @foreach ($blogs as $blog)
                 @if ($blog['status'] == 1)
