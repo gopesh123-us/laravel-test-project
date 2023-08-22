@@ -15,7 +15,7 @@ class HomeController extends Controller
             [
                 [
                     'title' => "Invokable",
-                    'body' => 'This is coming from an invokable single action controller. Requires --invokable flag',
+                    'body' => 'A single action controller requires --invokable flag',
                     'status' => 1,
 
                 ],
@@ -47,6 +47,24 @@ class HomeController extends Controller
                 ],
 
             ];
-        return view('home', compact('blogs'));
+        $authors = [
+            [
+                'name' => 'Gopesh Sharma',
+                'age' => '55',
+                'bookspublished' => 2,
+            ],
+            [
+                'name' => 'Malcolm Gladwell',
+                'age' => '65',
+                'bookspublished' => 12,
+            ],
+            [
+                'name' => 'Richard Banks',
+                'age' => '54',
+                'bookspublished' => 10,
+            ]
+
+        ];
+        return view('home', compact(['blogs', 'authors']));
     }
 }

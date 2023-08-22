@@ -33,6 +33,19 @@
                 @endif
             @endforeach
         </div>
+        <div class="row mt-2">
+            @foreach ($authors as $author)
+                <div class="col-md-4 mt-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h2>{{ $author['name'] }}</h2>
+                            <h3>Age: {{ $author['age'] }}</h3>
+                            <p>Books: {{ $author['bookspublished'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
         @php
             $i = 20;
         @endphp
@@ -45,7 +58,7 @@
             <div class="alert alert-warning">Variable has no value</div>
         @endempty
         @empty(!$i)
-            <div class="alert alert-success">Variable has a value</div>
+            <div class="alert alert-success">Variable has a value {{ $i }}</div>
         @endempty
 
         @switch($i)
@@ -58,7 +71,7 @@
             @break
 
             @default
-                <div class="alert alert-info">Value of i is not valid</div>
+                <div class="alert alert-info">Value of i is not valid - neither 5 nor 6</div>
         @endswitch
     </main>
 @endsection

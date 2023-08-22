@@ -12,6 +12,7 @@ class BlogController extends Controller
     public function index()
     {
         // show list here - mostly people do this
+        return view('blog');
     }
 
     /**

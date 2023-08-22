@@ -3,8 +3,9 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HelloWorldController;
 use App\Http\Controllers\HomeController;
-use Faker\Provider\Lorem;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,13 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('home', HomeController::class);
+Route::get('/home', HomeController::class);
 
-Route::get('about', [AboutController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index']);
 
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::resource('blog', BlogController::class);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::get('/helloworld', [HelloWorldController::class, 'index'])->name('helloworld');
+
+Route::resource('blog', BlogController::class, ['index']);
+
+
 
 /**
  * Route::get('home', [HomeController::class, 'index']);
@@ -79,5 +86,5 @@ Route::group(["prefix" => "customer"], function () {
 
 /**Fallback */
 Route::fallback(function () {
-    return "Page does not exist";
+    return "<strong>We are sorry!</strong> The page that you are trying to access does not exist";
 });
